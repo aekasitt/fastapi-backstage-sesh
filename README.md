@@ -59,6 +59,8 @@ app.add_middleware(BackstageSeshMiddleware)
 # routes and other things
 ```
 
+### InMemoryBackend Example
+
 Similarly, you can use InMemoryBackend as such...
 
 ```py
@@ -81,6 +83,37 @@ def get_backstage_config():
 app.add_middleware(BackstageSeshMiddleware)
 # ...
 # routes and other things
+```
+
+### Then What? How do I access the Session Data?
+
+In your endpoints, you can access the request's session as such, `request.session.data`
+or subscriptable key-value access as such `request.session["key"]`
+Example apps continue as seen below.
+
+```py
+@app.get('/', response_class=JSONResponse)
+async def homepage(request: Request):
+  '''
+  Display session contents.
+  '''
+  return request.session.data
+
+@app.get('/set', response_class=RedirectResponse)
+async def set_time(request: Request):
+  '''
+  Set session contents.
+  '''
+  request.session['date'] = datetime.datetime.now().isoformat()
+  return '/'
+
+@app.get('/clean', response_class=RedirectResponse)
+async def clean(request: Request):
+  '''
+  Remove all session contents.
+  '''
+  await request.session.flush()
+  return '/'
 ```
 
 ### Run Examples
