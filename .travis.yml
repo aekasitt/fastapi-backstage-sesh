@@ -6,7 +6,7 @@ python:
   - '3.9'
 install:
   - pip install -U poetry
-  - poetry install --dev
+  - poetry install
 before_script:
   - pytest tests/*.py
 script:
