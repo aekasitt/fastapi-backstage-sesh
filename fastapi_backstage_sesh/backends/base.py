@@ -19,28 +19,28 @@ class BackstageSeshBackend(ABC):
   '''
 
   @abstractmethod
-  async def read(self, session_id: str) -> Dict[str, Any]:  # pragma: no cover
+  async def read(self, session_id: str) -> Dict[str, Any]:
     '''
     Read session data from the storage.
     '''
     raise NotImplementedError
 
   @abstractmethod
-  async def write(self, data: Dict, session_id: Optional[str] = None) -> str:  # pragma: no cover
+  async def write(self, data: Dict, session_id: Optional[str] = None) -> str:
     '''
     Write session data to the storage.
     '''
     raise NotImplementedError
 
   @abstractmethod
-  async def remove(self, session_id: str) -> None:  # pragma: no cover
+  async def remove(self, session_id: str) -> None:
     '''
     Remove session data from the storage.
     '''
     raise NotImplementedError
 
   @abstractmethod
-  async def exists(self, session_id: str) -> bool:  # pragma: no cover
+  async def exists(self, session_id: str) -> bool:
     '''
     Test if storage contains session data for a given session_id.
     '''
