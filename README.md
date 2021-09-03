@@ -32,6 +32,55 @@ poetry add fastapi-backstage-sesh
 
 See example application in `examples/` directory of this repository.
 
+### CookieBackend Example
+
+The following snippet shows how you can integrate `BackstageSeshMiddleware` using Cookies
+
+```py
+from fastapi_backstage_sesh import BackstageSeshMiddleware
+from pydantic import BaseModel
+# ...
+app = FastAPI()
+# ...
+# Define BackstageSeshMiddleware settings as a `pydantic` BaseModel subclass; Can also be done as an array of tuples.
+class BackstageSettings(BaseModel):
+  autoload: bool  = True
+  secret_key: str = 'asecrettoeverybody'
+
+# Loads Config into the Middleware class
+@BackstageSeshMiddleware.load_config
+def get_backstage_config():
+  return BackstageSettings()
+
+# Adds Middleware to the FastAPI app
+app.add_middleware(BackstageSeshMiddleware)
+# ...
+# routes and other things
+```
+
+Similarly, you can use InMemoryBackend as such...
+
+```py
+from fastapi_backstage_sesh import BackstageSeshMiddleware, InMemoryBackend
+from pydantic import BaseModel
+# ...
+app = FastAPI()
+# Define BackstageSeshMiddleware settings as a `pydantic` BaseModel subclass; Can also be done as an array of tuples.
+class BackstageSettings(BaseModel):
+  autoload: bool           = True
+  backend: InMemoryBackend = InMemoryBackend()
+
+# Loads Config into the Middleware class
+@BackstageSeshMiddleware.load_config
+def get_backstage_config():
+  return BackstageSettings()
+
+# Adds Middleware to the FastAPI app
+app.add_middleware(BackstageSeshMiddleware)
+# ...
+# routes and other things
+```
+
 ### Run Examples
 
 To run the provided examples, first you must install extra dependencies [uvicorn](https://github.com/encode/uvicorn)
