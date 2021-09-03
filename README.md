@@ -38,7 +38,37 @@ To run the provided examples, first you must install extra dependencies [uvicorn
 Run the following command to do so
 
 ```bash
-pip install -e .[examples]
-# or
+pip install -U poetry
+# then
 poetry install --extras examples
 ```
+
+After that you can start the example Apps using `Uvicorn`, a lightning-fast ASGI server implementation, with the following commands.
+
+```bash
+uvicorn examples.cookie:app
+# or
+uvicorn examples.memory:app
+```
+
+These examples show you how to set up the basic configuration of the Middleware using Pydantic's `BaseModel` syntax and then adding to your FastAPI app using
+`app.add_middleware(BackstageSeshMiddleware)` snippet.
+
+## Contributions
+
+To contribute to the project, fork the repository and clone to your local device and install preferred testing dependency [pytest](https://github.com/pytest-dev/pytest)
+Alternatively, run the following command on your terminal to do so:
+
+```bash
+poetry install
+```
+
+Testing can be done by the following command post-installation:
+
+```bash
+pytest tests/*.py
+```
+
+## License
+
+This project is licensed under the terms of the MIT license.
