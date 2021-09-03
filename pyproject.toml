@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "fastapi-backstage-sesh"
-version = "0.0.1"
+version = "0.0.2"
 description = "FastAPI Middleware with simple Session implementation, plug n' playable"
 authors = ["Sitt Guruvanich <aekasitt@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 homepage = "https://github.com/aekasitt/fastapi-backstage-sesh"
 repository = "https://github.com/aekasitt/fastapi-backstage-sesh"
-keywords = ["starlette", "fastapi", "session"]
+keywords = ["starlette", "fastapi", "sessions", "cookies", "samesite", "asynchronous"]
 classifiers = [
   "Environment :: Web Environment",
   "Intended Audience :: Developers",
