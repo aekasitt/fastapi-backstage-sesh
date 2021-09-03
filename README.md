@@ -42,7 +42,8 @@ from pydantic import BaseModel
 # ...
 app = FastAPI()
 # ...
-# Define BackstageSeshMiddleware settings as a `pydantic` BaseModel subclass; Can also be done as an array of tuples.
+# Define BackstageSeshMiddleware settings as a `pydantic` BaseModel subclass;
+# Can also be done as an array of tuples.
 class BackstageSettings(BaseModel):
   autoload: bool  = True
   secret_key: str = 'asecrettoeverybody'
@@ -65,7 +66,8 @@ from fastapi_backstage_sesh import BackstageSeshMiddleware, InMemoryBackend
 from pydantic import BaseModel
 # ...
 app = FastAPI()
-# Define BackstageSeshMiddleware settings as a `pydantic` BaseModel subclass; Can also be done as an array of tuples.
+# Define BackstageSeshMiddleware settings as a `pydantic` BaseModel subclass;
+# Can also be done as an array of tuples.
 class BackstageSettings(BaseModel):
   autoload: bool           = True
   backend: InMemoryBackend = InMemoryBackend()
