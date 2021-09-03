@@ -150,7 +150,7 @@ poetry install
 Testing can be done by the following command post-installation:
 
 ```bash
-pytest tests/*.py
+pytest
 ```
 
 ## License

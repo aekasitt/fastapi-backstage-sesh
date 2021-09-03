@@ -39,6 +39,8 @@ examples = [ "uvicorn" ]
 
 [tool.pytest.ini_options]
 addopts = "--strict-markers --tb=short -s"
+testpaths = [ "tests" ]
+python_files = "*.py"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

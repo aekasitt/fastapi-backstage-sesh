@@ -8,6 +8,6 @@ install:
   - pip install -U poetry
   - poetry install
 before_script:
-  - pytest tests/*.py
+  - pytest
 script:
   - poetry build
